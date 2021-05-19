@@ -1,48 +1,53 @@
 import java.time.Duration;
 import java.time.LocalTime;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
-public class WorkState implements Activity{
+public class WorkState implements State {
+    Tracker tracker;
 
-    ArrayList<LocalTime> START= new ArrayList<>();
-    ArrayList<LocalTime> STOP= new ArrayList<>();
-    ArrayList<Duration> DurationWork = new ArrayList<>();
+    List<String> startedWorking = new ArrayList<>();
+    List<String> stopWorking = new ArrayList<>();
 
+    WorkState (Tracker tracker){
+        this.tracker = tracker;
+    }
 
-    public void start(){
+    public String onWork(){
+        tracker.changeState(new WorkState(tracker));
         LocalTime eTime = LocalTime.now();
-        START.add(eTime);
-        // formating time
-        System.out.println("Started work at: " + timeFormatting(eTime));
+        startedWorking.add(timeFormatting(eTime));
+        return "Started work at: "+ eTime;
 
     }
-     public void stop(){
-         LocalTime eTime = LocalTime.now();
-         STOP.add(eTime);
-         // formating time
-         System.out.println("Finish work at: " + timeFormatting(eTime));
-         calculateDuration();
-     }
 
-     public void calculateDuration(){
-       int n =0;
-            while(n<STOP.size()){
-         Duration diff = Duration.between(START.get(n),STOP.get(n));
-         System.out.println("You have been working for:" + diff.toHours() + ":" + diff.toMinutes() + ":" + diff.toMillis()/1000);
+    public String onRest(){
+        tracker.setWorking(false);
+        LocalTime eTime = LocalTime.now();
+        stopWorking.add(timeFormatting(eTime));
+        tracker.changeState(new RestingState(tracker));
+        return "Stop working at "+ eTime;
 
-         //System.out.println(("runtime: " + (endTime - startTime)));
+    }
+    public String onStop (){
+        return "Stop working at: ";
+    }
 
-               // Period period = Period.between(START.get(n),STOP.get(n));
-         DurationWork .add(diff);}
-     }
+    public String timeFormatting(LocalTime time){
+        DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
+        String formattedDateStop = time.format(myFormatObj1);
+        return formattedDateStop;
 
-     public String timeFormatting(LocalTime time){
-         DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
-         String formattedDateStop = time.format(myFormatObj1);
-         return formattedDateStop;
+    }
+    public void calculateDuration (Long time){
+        List<Long> currentTime = new ArrayList<>();
+        if(currentTime.get(0)== null){
+            currentTime.add(time);
+        }
+    }
 
-     }
+
+
 }
 

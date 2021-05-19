@@ -3,12 +3,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Manager {
+/*public class Manager {
     protected String userName;
     Scanner sc = new Scanner(System.in);
-    Activity ac;
+
     WorkState work;
-    BreakState resting;
+
 
     Manager(String userName){
         this.userName = userName;
@@ -45,7 +45,7 @@ public class Manager {
     }
 
     public void work(){
-        work = new WorkState();
+       // work = new WorkState();
         work.start();
         System.out.println();
         menu();
@@ -68,11 +68,11 @@ public class Manager {
     public void stopAction(int index){
         // add promp message
        if (actions.get(index-1)=='w'){
-           work = new WorkState();
-           work.stop();
+          // work = new WorkState();
+           work.onStop();
        }else if(actions.get(index-1)=='b'){
            resting = new BreakState();
-           resting.stop();
+           resting.onStop();
        }
         menu();
     }
@@ -115,4 +115,4 @@ public class Manager {
 
 
 
-}
+}*/

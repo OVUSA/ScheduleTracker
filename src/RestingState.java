@@ -1,23 +1,58 @@
-import java.time.Duration;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+public class RestingState implements State {
+    Tracker tracker;
 
-public class BreakState implements Activity{
+    RestingState(Tracker tracker){
+        this.tracker = tracker;
+    }
+
+
+    @Override
+    public String onWork() {
+        return "Unactive";
+
+    }
+
+    @Override
+    public String onRest() {
+        return "Start resting at : ";
+
+    }
+
+    public String onStop(){
+        return "Stop resting at :";
+    }
+}
+/*import java.time.Duration;
+        import java.time.LocalTime;
+        import java.time.format.DateTimeFormatter;
+        import java.util.ArrayList;
+
+/*public class BreakState implements State {
 
         ArrayList<LocalTime> START= new ArrayList<>();
         ArrayList<LocalTime> STOP= new ArrayList<>();
         ArrayList<Duration> DurationRest = new ArrayList<>();
 
 
-        public void start(){
+        public void onStart(){
             LocalTime eTime = LocalTime.now();
             START.add(eTime);
             // formating time
             System.out.println("Started resting at: " + timeFormatting(eTime));
 
         }
-        public void stop(){
+
+    @Override
+    public String onWork() {
+        return null;
+    }
+
+    @Override
+    public String onRest() {
+        return null;
+    }
+
+    public String onStop(){
             LocalTime eTime = LocalTime.now();
             STOP.add(eTime);
             // formating time
@@ -40,4 +75,4 @@ public class BreakState implements Activity{
             return formattedDateStop;
 
         }
-    }
+    }*/
