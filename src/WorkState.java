@@ -15,7 +15,7 @@ public class WorkState implements State {
     }
 
     public String onWork(){
-        System.out.println("Have been working since:"+ startedWorking.get(startedWorking.size()));
+        System.out.println("Have been working since:"+ startedWorking.get(startedWorking.size()-1));
         return "Inactive..., press stop if you wish to terminate the activity!";
     }
 
@@ -28,13 +28,16 @@ public class WorkState implements State {
 
     }
     public String onStop (){
-        return "Stop working at: ";
+        tracker.setWorking(false);
+        tracker.changeState(new StopState(tracker));
+        LocalTime eTime = LocalTime.now();
+        stopWorking.add(timeFormatting(eTime));
+        return "Stop working at: " + eTime;
     }
 
     public String timeFormatting(LocalTime time){
         DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
-        String formattedDateStop = time.format(myFormatObj1);
-        return formattedDateStop;
+        return  time.format(myFormatObj1);
 
     }
     public void calculateDuration (Long time){
