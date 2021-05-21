@@ -15,11 +15,8 @@ public class WorkState implements State {
     }
 
     public String onWork(){
-        tracker.changeState(new WorkState(tracker));
-        LocalTime eTime = LocalTime.now();
-        startedWorking.add(timeFormatting(eTime));
-        return "Started work at: "+ eTime;
-
+        System.out.println("Have been working since:"+ startedWorking.get(startedWorking.size()));
+        return "Inactive..., press stop if you wish to terminate the activity!";
     }
 
     public String onRest(){

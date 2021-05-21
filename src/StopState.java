@@ -1,7 +1,9 @@
+import java.time.LocalTime;
+
 class StopState implements State{
 
     Tracker tracker;
-
+    WorkState workState;
     StopState(Tracker tracker){
         this.tracker = tracker;
     }
@@ -9,7 +11,11 @@ class StopState implements State{
 
     @Override
     public String onWork() {
-        return null;
+        tracker.changeState(new WorkState(tracker));
+        tracker.setWorking(true);
+        LocalTime eTime = LocalTime.now();
+        workState.startedWorking.add(workState.timeFormatting(eTime));
+        return "Started work at: "+ eTime;
     }
 
     @Override
