@@ -19,7 +19,8 @@ public class RestingState implements State {
     }
 
     public String onStop(){
-        return "Stop resting at :";
+    LocalTime eTime = LocalTime.now();
+    return "Stop resting at :"+ws.timeFormatting(eTime);
     }
 }
 /*import java.time.Duration;
