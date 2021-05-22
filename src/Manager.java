@@ -10,46 +10,8 @@ public class Manager {
     List<String> startedResting = new ArrayList<>();
     List<String> stopResting = new ArrayList<>();
 }
+
 /*
-    public void menu(){
-
-    System.out.println("Press 'w'  to start working,\n"
-                + "    'b' to start a break \n" +
-                      "'s' to stop current action\n"+
-                "     'e' to end the session.");
-        char input = sc.next().charAt(0);
-        actions.add(input);
-
-        switch(input){
-            case 'w':work();
-                break;
-            case 'b':rest();
-                break;
-            case 'e':exit();
-                break;
-            case 's':stopAction(actions.size());
-                break;
-            default:
-                System.out.println("You need to select the option from the menu:");
-                menu();
-        }
-    }
-
-    public void work(){
-       // work = new WorkState();
-        work.start();
-        System.out.println();
-        menu();
-    }
-
-    public void rest(){
-         resting = new BreakState();
-         resting.start();
-        System.out.println();
-        menu();
-
-    }
-
     public void exit(){
         System.out.println("Good bye");
         System.out.println("You daily report is: ");
