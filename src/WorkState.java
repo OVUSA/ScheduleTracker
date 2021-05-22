@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorkState implements State {
+    Manager manager;
     Tracker tracker;
 
-    List<String> startedWorking = new ArrayList<>();
-    List<String> stopWorking = new ArrayList<>();
+
 
     WorkState (Tracker tracker){
         this.tracker = tracker;
     }
 
     public String onWork(){
-        System.out.println("Have been working since:"+ startedWorking.get(startedWorking.size()-1));
+        System.out.println("Have been working since:"+ manager.startedWorking.get(manager.startedWorking.size()-1));
         return "Inactive..., press stop if you wish to terminate the activity!";
     }
 
     public String onRest(){
         tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
-        stopWorking.add(timeFormatting(eTime));
+        manager.stopWorking.add(timeFormatting(eTime));
         tracker.changeState(new RestingState(tracker));
         return "Stop working at "+ eTime;
 
@@ -31,7 +31,7 @@ public class WorkState implements State {
         tracker.setWorking(false);
         tracker.changeState(new StopState(tracker));
         LocalTime eTime = LocalTime.now();
-        stopWorking.add(timeFormatting(eTime));
+        manager.stopWorking.add(timeFormatting(eTime));
         return "Stop working at: " + eTime;
     }
 

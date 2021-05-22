@@ -1,25 +1,16 @@
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-
-/*public class Manager {
-    protected String userName;
-    Scanner sc = new Scanner(System.in);
-
-    WorkState work;
-
-
-    Manager(String userName){
-        this.userName = userName;
-    }
-    public  String getUserName(){
-        return userName;
-    }
-
-    ArrayList<Character>actions = new ArrayList<>();
-
-
+// the class stores all data for the tracker
+public class Manager {
+    List<String> startedWorking = new ArrayList<>();
+    List<String> stopWorking = new ArrayList<>();
+    List<String> startedResting = new ArrayList<>();
+    List<String> stopResting = new ArrayList<>();
+}
+/*
     public void menu(){
 
     System.out.println("Press 'w'  to start working,\n"
