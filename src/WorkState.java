@@ -24,7 +24,7 @@ public class WorkState implements State {
         LocalTime eTime = LocalTime.now();
         manager.stopWorking.add(timeFormatting(eTime));
         tracker.changeState(new RestingState(tracker));
-        return "Stop working at "+ eTime;
+        return "Stop working at "+ eTime +"\n Started resting at"+ eTime;
 
     }
     public String onStop (){
