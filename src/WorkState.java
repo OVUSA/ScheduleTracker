@@ -20,16 +20,16 @@ public class WorkState implements State {
     }
 
     public String onRest(){
-        tracker.setWorking(false);
+       // tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
         manager.stopWorking.add(timeFormatting(eTime));
-        tracker.changeState(new RestingState(tracker));
+       // tracker.changeState(new RestingState(tracker));
         return "Stop working at "+ eTime +"\n Started resting at"+ eTime;
 
     }
     public String onStop (){
-        tracker.setWorking(false);
-        tracker.changeState(new StopState(tracker));
+       // tracker.setWorking(false);
+      //  tracker.changeState(new StopState(tracker));
         LocalTime eTime = LocalTime.now();
         manager.stopWorking.add(timeFormatting(eTime));
         return "Stop working at: " + eTime;
