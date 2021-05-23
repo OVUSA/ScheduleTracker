@@ -1,5 +1,8 @@
+import java.time.LocalTime;
+
 public class RestingState implements State {
     Tracker tracker;
+    WorkState ws;
 
     RestingState(Tracker tracker){
         this.tracker = tracker;
@@ -8,7 +11,7 @@ public class RestingState implements State {
 
     @Override
     public String onWork() {
-        return "Unactive";
+        return "Inactive";
 
     }
 
@@ -19,7 +22,8 @@ public class RestingState implements State {
     }
 
     public String onStop(){
-        return "Stop resting at :";
+     LocalTime eTime = LocalTime.now();
+      return "Stop resting at :"+ws.timeFormatting(eTime);
     }
 }
 /*import java.time.Duration;

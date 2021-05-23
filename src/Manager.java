@@ -9,6 +9,10 @@ public class Manager {
     List<String> stopWorking = new ArrayList<>();
     List<String> startedResting = new ArrayList<>();
     List<String> stopResting = new ArrayList<>();
+    static long durationA=0;
+    static long durationB=0;
+    List <Long> durationsAB = new ArrayList<>();
+
 }
 /*
     public void menu(){

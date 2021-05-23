@@ -15,24 +15,25 @@ public class WorkState implements State {
     }
 
     public String onWork(){
-        System.out.println("Have been working since:"+ manager.startedWorking.get(manager.startedWorking.size()-1));
+       // System.out.println("Have been working since:"+ manager.startedWorking.get(manager.startedWorking.size()-1));
         return "Inactive..., press stop if you wish to terminate the activity!";
     }
 
     public String onRest(){
         tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
-        manager.stopWorking.add(timeFormatting(eTime));
-        tracker.changeState(new RestingState(tracker));
-        return "Stop working at "+ eTime;
+        // need to save this time in array;
+        //tracker.changeState(new RestingState(tracker));
+        return "Stop working at "+ timeFormatting(eTime) +"\n Started resting at"+ timeFormatting(eTime);
+
 
     }
-    public String onStop (){
+    public String onStop (){// doesn work
         tracker.setWorking(false);
-        tracker.changeState(new StopState(tracker));
+        //tracker.changeState(new StopState(tracker));
         LocalTime eTime = LocalTime.now();
-        manager.stopWorking.add(timeFormatting(eTime));
-        return "Stop working at: " + eTime;
+        String times = timeFormatting(eTime);
+        return "Stop working at: " + times;
     }
 
     public String timeFormatting(LocalTime time){

@@ -13,20 +13,23 @@ class StopState implements State{
     @Override
     public String onWork() {
         tracker.changeState(new WorkState(tracker));
-        tracker.setWorking(true);
+        tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
-        manager.startedWorking.add(ws.timeFormatting(eTime));
-        return "Started work at: "+ eTime;
+//        manager.startedWorking.add(ws.timeFormatting(eTime));//  save the time!!
+        return "Started working at: "+ ws.timeFormatting(eTime);
     }
 
     @Override
     public String onRest() {
-        return null;
+        tracker.changeState(new RestingState(tracker));
+        tracker.setWorking(false);
+        LocalTime eTime = LocalTime.now();
+        return "Started resting at "+ ws.timeFormatting(eTime);
     }
 
     @Override
     public String onStop() {
-        return null;
+        return "Inactive 'STOP' button";
     }
 
 
