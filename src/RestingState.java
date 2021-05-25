@@ -2,6 +2,7 @@ import java.time.LocalTime;
 
 public class RestingState implements State {
     Tracker tracker;
+    Manager dataBase = new Manager();
 
 
     RestingState(Tracker tracker){
@@ -15,6 +16,7 @@ public class RestingState implements State {
         String ct = tracker.timeFormatting(currentTime);
         System.out.println("Stop resting is recorded at: "+ ct);
         tracker.changeState(new WorkState(tracker));
+        dataBase.
         return "Begin working at "+ ct ;
 
     }
