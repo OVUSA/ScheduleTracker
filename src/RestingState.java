@@ -8,14 +8,15 @@ public class RestingState implements State {
         this.tracker = tracker;
     }
 
-
+    // Capture the time the button was pressed , then changes the state
+    // record the time to StopResting and StartWorking
     @Override
     public String onWork() {
         LocalTime currentTime = LocalTime.now();
         String ct = tracker.timeFormatting(currentTime);
-        System.out.println("Stop resting is recorded at: "+ ct);
         tracker.changeState(new WorkState(tracker));
-        return "Begin working at "+ ct ;
+        return "Stop resting is recorded at: "+ ct+" \n"+
+                "Begin working at "+ ct ;
 
     }
 
@@ -31,17 +32,9 @@ public class RestingState implements State {
       return "Stop resting at :"+ tracker.timeFormatting(eTime);
     }
 }
-/*import java.time.Duration;
-        import java.time.LocalTime;
-        import java.time.format.DateTimeFormatter;
-        import java.util.ArrayList;
+
 
 /*public class BreakState implements State {
-
-        ArrayList<LocalTime> START= new ArrayList<>();
-        ArrayList<LocalTime> STOP= new ArrayList<>();
-        ArrayList<Duration> DurationRest = new ArrayList<>();
-
 
         public void onStart(){
             LocalTime eTime = LocalTime.now();
@@ -49,23 +42,6 @@ public class RestingState implements State {
             // formatting time
             System.out.println("Started resting at: " + timeFormatting(eTime));
 
-        }
-
-    @Override
-    public String onWork() {
-        return null;
-    }
-
-    @Override
-    public String onRest() {
-        return null;
-    }
-
-    public String onStop(){
-            LocalTime eTime = LocalTime.now();
-            STOP.add(eTime);
-            // formatting time
-            System.out.println("Finish resting at: " + timeFormatting(eTime));
         }
 
         public void calculateDuration(){
@@ -76,12 +52,5 @@ public class RestingState implements State {
 
                 //System.out.println(("runtime: " + (endTime - startTime)));
                 DurationRest .add(diff);}
-        }
-
-        public String timeFormatting(LocalTime time){
-            DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
-            String formattedDateStop = time.format(myFormatObj1);
-            return formattedDateStop;
-
         }
     }*/

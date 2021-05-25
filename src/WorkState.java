@@ -9,23 +9,22 @@ public class WorkState implements State {
     Tracker tracker;
 
 
-
     WorkState (Tracker tracker){
         this.tracker = tracker;
     }
 
     public String onWork(){
        // System.out.println("Have been working since:"+ manager.startedWorking.get(manager.startedWorking.size()-1));
-        return " WORKSTATE Inactive..., press stop if you wish to terminate the activity!";
+        return "Inactive..., press STOP if you wish to terminate the activity!";
     }
 
     public String onRest(){
         LocalTime eTime = LocalTime.now();
-        //tracker.setWorking(false);
-        System.out.println("Stop working at "+ timeFormatting(eTime));
-          // need to save this time in array;
+        String currentTime = tracker.timeFormatting(eTime);
+        System.out.println("Stop working at "+ currentTime);
+        //manager.stopWorking.add(currentTime);
         tracker.changeState(new RestingState(tracker));
-        return " Started resting at "+ timeFormatting(eTime);
+        return " Started resting at "+ currentTime;
 
 
     }
@@ -35,7 +34,7 @@ public class WorkState implements State {
         LocalTime eTime = LocalTime.now();
         String times = timeFormatting(eTime);
         tracker.changeState(new StopState(tracker));
-        return " WORKSTATE Stop working at: " + times;
+        return " Stop working at: " + times;
     }
 
     public String timeFormatting(LocalTime time){

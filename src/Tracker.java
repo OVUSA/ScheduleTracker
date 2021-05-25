@@ -33,4 +33,8 @@ public class Tracker {
         return  time.format(myFormatObj1);
 
     }
+
+    public void report(){
+
+    }
 }
