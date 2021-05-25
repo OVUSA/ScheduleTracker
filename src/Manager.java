@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 // the class stores all data for the tracker
 public class Manager {
+
     List<String> startedWorking = new ArrayList<>();
     List<String> stopWorking = new ArrayList<>();
     List<String> startedResting = new ArrayList<>();

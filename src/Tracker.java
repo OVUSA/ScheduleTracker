@@ -35,6 +35,16 @@ public class Tracker {
     }
 
     public void report(){
+        Manager storage = new Manager();
+        System.out.println("Here is your daily report, \n" +
+                "here you can see how much time you worked \n and how much time you rested");
+        for ( String a: storage.startedWorking){
+            System.out.print("Started work at :"+a);
+            for (String b:storage.stopWorking){
+                System.out.println("Started work at :"+b);
+                break;
+            }
+        }
 
     }
 }

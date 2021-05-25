@@ -38,6 +38,7 @@ public class User_Interface extends JFrame{
         buttons.add(rest);
         buttons.add(stop);
 
+
         this.pack();
     }
 

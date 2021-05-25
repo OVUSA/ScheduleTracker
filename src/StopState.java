@@ -30,6 +30,7 @@ class StopState implements State{
 
     @Override
     public String onStop() {
+        tracker.report();
         return "Inactive 'STOP' button";
     }
 

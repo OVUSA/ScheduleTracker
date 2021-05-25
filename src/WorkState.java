@@ -28,7 +28,7 @@ public class WorkState implements State {
 
 
     }
-    public String onStop (){// doesn work
+    public String onStop (){
         tracker.setWorking(false);
         //tracker.changeState(new StopState(tracker));
         LocalTime eTime = LocalTime.now();

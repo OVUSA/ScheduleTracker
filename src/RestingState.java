@@ -36,14 +36,6 @@ public class RestingState implements State {
 
 /*public class BreakState implements State {
 
-        public void onStart(){
-            LocalTime eTime = LocalTime.now();
-            START.add(eTime);
-            // formatting time
-            System.out.println("Started resting at: " + timeFormatting(eTime));
-
-        }
-
         public void calculateDuration(){
             int n =0;
             while(n<STOP.size()){
