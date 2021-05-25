@@ -31,17 +31,8 @@ public class RestingState implements State {
       return "Stop resting at :"+ tracker.timeFormatting(eTime);
     }
 }
-/*import java.time.Duration;
-        import java.time.LocalTime;
-        import java.time.format.DateTimeFormatter;
-        import java.util.ArrayList;
 
 /*public class BreakState implements State {
-
-        ArrayList<LocalTime> START= new ArrayList<>();
-        ArrayList<LocalTime> STOP= new ArrayList<>();
-        ArrayList<Duration> DurationRest = new ArrayList<>();
-
 
         public void onStart(){
             LocalTime eTime = LocalTime.now();
@@ -50,24 +41,6 @@ public class RestingState implements State {
             System.out.println("Started resting at: " + timeFormatting(eTime));
 
         }
-
-    @Override
-    public String onWork() {
-        return null;
-    }
-
-    @Override
-    public String onRest() {
-        return null;
-    }
-
-    public String onStop(){
-            LocalTime eTime = LocalTime.now();
-            STOP.add(eTime);
-            // formatting time
-            System.out.println("Finish resting at: " + timeFormatting(eTime));
-        }
-
         public void calculateDuration(){
             int n =0;
             while(n<STOP.size()){
@@ -78,10 +51,5 @@ public class RestingState implements State {
                 DurationRest .add(diff);}
         }
 
-        public String timeFormatting(LocalTime time){
-            DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
-            String formattedDateStop = time.format(myFormatObj1);
-            return formattedDateStop;
 
-        }
     }*/
