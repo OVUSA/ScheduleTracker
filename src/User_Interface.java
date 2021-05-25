@@ -30,7 +30,7 @@ public class User_Interface extends JFrame{
         JButton rest = new JButton("Rest");
         rest.addActionListener(e -> textField.setText(tracker.getState().onRest()));
         JButton stop = new JButton("Stop");
-        rest.addActionListener(e -> textField.setText(tracker.getState().onStop()));
+        stop.addActionListener(e -> textField.setText(tracker.getState().onStop()));
 
         frame.setVisible(true);
         frame.setSize(500,250);

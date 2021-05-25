@@ -2,7 +2,7 @@ import java.time.LocalTime;
 
 public class RestingState implements State {
     Tracker tracker;
-    WorkState ws;
+
 
     RestingState(Tracker tracker){
         this.tracker = tracker;
@@ -11,19 +11,24 @@ public class RestingState implements State {
 
     @Override
     public String onWork() {
-        return "Inactive";
+        LocalTime currentTime = LocalTime.now();
+        String ct = tracker.timeFormatting(currentTime);
+        System.out.println("Stop resting is recorded at: "+ ct);
+        tracker.changeState(new WorkState(tracker));
+        return "Begin working at "+ ct ;
 
     }
 
     @Override
     public String onRest() {
-        return "Start resting at : ";
+        return "Inactive button... you are resting.\n If you wish to terminate the activity press STOP button";
 
     }
 
     public String onStop(){
      LocalTime eTime = LocalTime.now();
-      return "Stop resting at :"+ws.timeFormatting(eTime);
+     tracker.changeState(new StopState(tracker));
+      return "Stop resting at :"+ tracker.timeFormatting(eTime);
     }
 }
 /*import java.time.Duration;
@@ -41,7 +46,7 @@ public class RestingState implements State {
         public void onStart(){
             LocalTime eTime = LocalTime.now();
             START.add(eTime);
-            // formating time
+            // formatting time
             System.out.println("Started resting at: " + timeFormatting(eTime));
 
         }
@@ -59,7 +64,7 @@ public class RestingState implements State {
     public String onStop(){
             LocalTime eTime = LocalTime.now();
             STOP.add(eTime);
-            // formating time
+            // formatting time
             System.out.println("Finish resting at: " + timeFormatting(eTime));
         }
 

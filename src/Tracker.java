@@ -1,4 +1,5 @@
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Tracker {
 
@@ -7,8 +8,8 @@ public class Tracker {
     private boolean working = false;
 
     public Tracker(){
-        this.state = new WorkState(this);
-        setWorking(false);
+        this.state = new StopState(this);
+        setWorking(true);
     }
 
     public void changeState(State state){
@@ -26,4 +27,10 @@ public class Tracker {
         return working;
     }
 
+
+    public String timeFormatting(LocalTime time){
+        DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
+        return  time.format(myFormatObj1);
+
+    }
 }
