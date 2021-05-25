@@ -3,12 +3,9 @@ import java.time.LocalTime;
 class StopState implements State{
 
     Tracker tracker;
-    Manager manager;
-    WorkState ws;
     StopState(Tracker tracker){
         this.tracker = tracker;
     }
-
 
     @Override
     public String onWork() {
@@ -16,7 +13,7 @@ class StopState implements State{
         //tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
 //        manager.startedWorking.add(ws.timeFormatting(eTime));//  save the time!!
-        return " STOP STATE Started working at: "+eTime;
+        return "Started working at: "+eTime;
     }
 
     @Override
@@ -24,7 +21,7 @@ class StopState implements State{
         tracker.changeState(new RestingState(tracker));
        // tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
-        return " STOP STATE Started resting at "+ eTime;
+        return "Started resting at "+ eTime;
     }
 
     @Override
