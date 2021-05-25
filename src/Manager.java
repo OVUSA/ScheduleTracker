@@ -16,24 +16,6 @@ public class Manager {
 }
 
 /*
-    public void exit(){
-        System.out.println("Good bye");
-        System.out.println("You daily report is: ");
-        report();
-
-    }
-    public void stopAction(int index){
-        // add promp message
-       if (actions.get(index-1)=='w'){
-          // work = new WorkState();
-           work.onStop();
-       }else if(actions.get(index-1)=='b'){
-           resting = new BreakState();
-           resting.onStop();
-       }
-        menu();
-    }
-
     public void report() {
 
         System.out.println("User name : "+ getUserName());
@@ -68,8 +50,5 @@ public class Manager {
        // String time1 = simpleDateFormat1.format(date1);
       //  System.out.print(workTimeDiff);
 
-    }
-
-
-
+ 
 }*/
