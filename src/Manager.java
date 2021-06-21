@@ -6,36 +6,30 @@ import java.util.Scanner;
 // the class stores all data for the tracker
 public class Manager {
 
-    List<String> startedWorking = new ArrayList<>();
-    List<String> stopWorking = new ArrayList<>();
-    List<String> startedResting = new ArrayList<>();
-    List<String> stopResting = new ArrayList<>();
-    static long durationA=0;
-    static long durationB=0;
+    List<Long> startedWorking = new ArrayList<>();
+    List<Long> stopWorking = new ArrayList<>();
+    List<Long> startedResting = new ArrayList<>();
+    List<Long> stopResting = new ArrayList<>();
+    static long durationStart=0;
+    static long durationStop=0;
     List <Long> durationsAB = new ArrayList<>();
+
+    public void setDurationStart(long start){
+        this.durationStart = start;
+    }
+    public void setDurationStop(long start){
+        this.durationStop = start;
+    }
+
+    public void calculateDuration(){
+        long elapsedTime = durationStop- durationStart;
+        durationsAB.add(elapsedTime);
+    }
 
 }
 
 /*
-    public void exit(){
-        System.out.println("Good bye");
-        System.out.println("You daily report is: ");
-        report();
-
-    }
-    public void stopAction(int index){
-        // add promp message
-       if (actions.get(index-1)=='w'){
-          // work = new WorkState();
-           work.onStop();
-       }else if(actions.get(index-1)=='b'){
-           resting = new BreakState();
-           resting.onStop();
-       }
-        menu();
-    }
-
-    public void report() {
+     public void report() {
 
         System.out.println("User name : "+ getUserName());
         LocalDate today = LocalDate.now();

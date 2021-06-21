@@ -1,12 +1,13 @@
-import java.time.Duration;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WorkState implements State {
-    Manager manager;
     Tracker tracker;
+    Manager storage;
+    long start;
 
 
     WorkState (Tracker tracker){
@@ -20,6 +21,8 @@ public class WorkState implements State {
 
     public String onRest(){
         LocalTime eTime = LocalTime.now();
+        long start = System.currentTimeMillis();
+
         String currentTime = tracker.timeFormatting(eTime);
         System.out.println("Stop working at "+ currentTime);
         //manager.stopWorking.add(currentTime);
@@ -52,4 +55,7 @@ public class WorkState implements State {
 
 
 }
+
+// localitme.minusMinutes(long)
+//long createdMillis = System.currentTimeMillis();
 

@@ -14,7 +14,8 @@ class StopState implements State{
         tracker.changeState(new WorkState(tracker));
         LocalTime eTime = LocalTime.now();
         String currentTime = tracker.timeFormatting(eTime);
-        storage.startedWorking.add(currentTime);
+        long start = System.currentTimeMillis();
+        storage.startedWorking.add(start);
         return "Started working at: "+ currentTime;
     }
 
@@ -24,13 +25,14 @@ class StopState implements State{
        // tracker.setWorking(false);
         LocalTime eTime = LocalTime.now();
         String currentTime = tracker.timeFormatting(eTime);
-        storage.startedResting.add(currentTime);
+        long start = System.currentTimeMillis();
+        storage.startedResting.add(start);
         return "Started resting at "+ currentTime;
     }
 
     @Override
     public String onStop() {
-        tracker.report();
+       // tracker.report();
         return "Inactive 'STOP' button";
     }
 

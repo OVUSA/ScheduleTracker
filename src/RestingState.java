@@ -2,7 +2,8 @@ import java.time.LocalTime;
 
 public class RestingState implements State {
     Tracker tracker;
-
+    Manager dataBase = new Manager();
+    static LocalTime now;
 
     RestingState(Tracker tracker){
         this.tracker = tracker;
@@ -14,7 +15,9 @@ public class RestingState implements State {
     public String onWork() {
         LocalTime currentTime = LocalTime.now();
         String ct = tracker.timeFormatting(currentTime);
+        long start = System.currentTimeMillis();
         tracker.changeState(new WorkState(tracker));
+        dataBase.startedWorking.add(start);
         return "Stop resting is recorded at: "+ ct+" \n"+
                 "Begin working at "+ ct ;
 
@@ -28,8 +31,10 @@ public class RestingState implements State {
 
     public String onStop(){
      LocalTime eTime = LocalTime.now();
+     long stop = System.currentTimeMillis();
      tracker.changeState(new StopState(tracker));
-      return "Stop resting at :"+ tracker.timeFormatting(eTime);
+     dataBase.stopResting.add(stop);
+     return "Stop resting at :"+ tracker.timeFormatting(eTime);
     }
 }
 
