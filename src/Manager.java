@@ -42,7 +42,6 @@ public class Manager {
             currentTime.add(time);
         }
     }
-
 }
 
 /*
@@ -81,7 +80,4 @@ public class Manager {
       //  System.out.print(workTimeDiff);
 
     }
-
-
-
 }*/
