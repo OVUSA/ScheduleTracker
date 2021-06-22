@@ -21,7 +21,6 @@ public class RestingState implements State {
         tracker.changeState(new WorkState(tracker));
         return "Stop resting is recorded at: "+ ct+" \n"+
                 "Begin working at "+ ct ;
-
     }
 
     @Override
