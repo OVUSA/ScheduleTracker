@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class User_Interface extends JFrame{
     Tracker tracker;
@@ -44,7 +45,11 @@ public class User_Interface extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                tracker.report();
+                try {
+                    tracker.report();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 

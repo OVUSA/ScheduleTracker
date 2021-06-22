@@ -3,7 +3,7 @@ import java.time.LocalTime;
 class StopState implements State{
 
     Tracker tracker;
-    Manager storage = new Manager();
+   Manager storage = new Manager();
 
     StopState(Tracker tracker){
         this.tracker = tracker;
