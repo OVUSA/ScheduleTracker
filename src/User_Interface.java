@@ -11,7 +11,6 @@ public class User_Interface extends JFrame{
     private JScrollPane jScrollPane1;
 
 
-
     public User_Interface(Tracker tracker){
        this.tracker = tracker;
 
@@ -53,17 +52,12 @@ public class User_Interface extends JFrame{
             }
         });
 
-
         frame.setVisible(true);
         frame.setSize(500,250);
         buttons.add(work);
         buttons.add(rest);
         buttons.add(stop);
         buttons.add(report);
-
-
         this.pack();
     }
-
-
 }
