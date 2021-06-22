@@ -43,9 +43,7 @@ public class Manager implements State {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
             Date date = new Date(element);
             String time = simpleDateFormat.format(date);
-            duration.add(time);
-
-        return time;
+         return time;
     }
 
 
@@ -81,21 +79,7 @@ public class Manager implements State {
         pw.close();
     }
 
-    @Override
-    public String onWork() {
-        return null;
-    }
-
-    @Override
-    public String onRest() {
-        return null;
-    }
-
-    @Override
-    public String onStop() {
-        return null;
-    }
-}
+ }
 /*
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("00:mm:ss");
         //Date date1 = new Date(element);
