@@ -25,7 +25,7 @@ public class Manager {
     }
 
     public void calculateDuration() {
-        for ( int i  = 0; i <startedWorking.size();i++) {
+        for ( int i  = 0; i <startedWorking.size()-1;i++) {
             dif.add(stopWorking.get(i) - startedWorking.get(i));
         }
     }

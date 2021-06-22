@@ -28,11 +28,16 @@ public class Tracker {
     }
 
 
-    public String report(){
+    public void report(){
         Manager storage = new Manager();
         System.out.println("Here is your daily report, \n" +
                 "here you can see how much time you worked \n and how much time you rested");
-        return storage.duration.get(0);
+
+        storage.calculateDuration();
+
+        for (int i = 0 ;i<storage.dif.size(); i++){
+            System.out.println(storage.dif.get(i));
+        }
 
     }
 

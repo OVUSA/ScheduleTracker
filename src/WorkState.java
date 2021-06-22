@@ -27,12 +27,11 @@ public class WorkState implements State {
     }
 
     public String onStop (){
-        tracker.changeState(new StopState(tracker));
         long stop = System.currentTimeMillis();
         storage.stopWorking.add(stop);
+        tracker.changeState(new StopState(tracker));
         LocalTime eTime = LocalTime.now();
         String times = storage.timeFormatting(eTime);
-        tracker.changeState(new StopState(tracker));
         return " Stop working at: " + times;
     }
 

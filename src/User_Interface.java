@@ -40,7 +40,13 @@ public class User_Interface extends JFrame{
 
 
         JButton report = new JButton("Report");
-        //report.addActionListener(e -> textArea.setText(tracker.report()));
+        report.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tracker.report();
+            }
+        });
 
 
         frame.setVisible(true);
