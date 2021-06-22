@@ -3,7 +3,7 @@ import java.time.LocalTime;
 public class WorkState implements State {
     Tracker tracker;
     Manager storage;
-    long start;
+   
     WorkState (Tracker tracker){
         this.tracker = tracker;
     }
