@@ -37,6 +37,8 @@ public class User_Interface extends JFrame{
         rest.addActionListener(e -> textField.setText(tracker.getState().onRest()));
         JButton stop = new JButton("Stop");
         stop.addActionListener(e -> textField.setText(tracker.getState().onStop()));
+
+
         JButton report = new JButton("Report");
         //report.addActionListener(e -> textArea.setText(tracker.report()));
 

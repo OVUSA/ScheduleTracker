@@ -1,11 +1,8 @@
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-// the class stores all data for the tracker
+
 public class Manager {
 
     List<Long> startedWorking = new ArrayList<>();
@@ -14,35 +11,56 @@ public class Manager {
     List<Long> stopResting = new ArrayList<>();
 
 
-
-    static long durationStart=0;
-    static long durationStop=0;
-    List <Long> durationsAB = new ArrayList<>();
-
-    public void setDurationStart(long start){
-        this.durationStart = start;
-    }
-    public void setDurationStop(long start){
-        this.durationStop = start;
-    }
-
-    public void calculateDuration(){
+    /*public void calculateDuration(){
         long elapsedTime = durationStop- durationStart;
         durationsAB.add(elapsedTime);
-    }
+    }*/
 
     public String timeFormatting(LocalTime time){
         DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
         return  time.format(myFormatObj1);
 
     }
-    public void calculateDuration (Long time){
-        List<Long> currentTime = new ArrayList<>();
-        if(currentTime.get(0)== null){
-            currentTime.add(time);
-        }
-    }
 }
+
+   /* public static void printReport( ) throws IOException {
+        FileOutputStream fileStream = new FileOutputStream("report.txt");
+        PrintWriter pw = new PrintWriter(fileStream);
+
+
+        // out = new BufferedWriter(new FileWriter());
+        pw.println("User name : "+ name);
+        LocalDate today = LocalDate.now();
+        long element = 0 ;
+        pw.println();
+        pw.println( "Report for "+ today);
+        pw.println();
+        pw.println("Categories \t Duration:");
+
+        pw.print(" Work   \t  ");
+        for (int i = 0 ; i < DurationWork.size(); i ++) {
+            element = element + DurationWork.get(i);
+        }
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("00:mm:ss");
+        Date date = new Date(element);
+        String time = simpleDateFormat.format(date);
+        pw.println(time);
+
+        element = 0;
+        pw.println();
+        pw.print(" Break   \t  ");
+        for (int i = 0 ; i < DurationBreak.size(); i ++) {
+            element = element + DurationBreak.get(i);
+        }
+        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("00:mm:ss");
+        Date date1 = new Date(element);
+        String time1 = simpleDateFormat1.format(date1);
+        pw.println(time1);
+        pw.close();
+    }*/
+
+
 
 /*
      public void report() {

@@ -3,7 +3,7 @@ import java.time.LocalTime;
 public class RestingState implements State {
     Tracker tracker;
     Manager dataBase = new Manager();
-    static LocalTime now;
+
 
     RestingState(Tracker tracker){
         this.tracker = tracker;

@@ -1,13 +1,11 @@
-
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class WorkState implements State {
     Tracker tracker;
-    Manager storage;
-    long start;
+    Manager storage = new Manager();
+
+
     WorkState (Tracker tracker){
         this.tracker = tracker;
     }
@@ -17,19 +15,19 @@ public class WorkState implements State {
     }
 
     public String onRest(){
+        tracker.changeState(new RestingState(tracker));
         LocalTime eTime = LocalTime.now();
         long stop = System.currentTimeMillis();
-        String currentTime = storage.timeFormatting(eTime);
-        System.out.println("Stop working at "+ currentTime);
+        System.out.println("Stop working at "+ storage.timeFormatting(eTime));
         System.out.println();
         // save time of the state' change
         storage.stopWorking.add(stop);
         storage.startedResting.add(stop);
-        tracker.changeState(new RestingState(tracker));
-        return " Started resting at "+ currentTime;
+        return " Started resting at "+ storage.timeFormatting(eTime);
     }
+
     public String onStop (){
-        tracker.setWorking(false);
+        tracker.changeState(new StopState(tracker));
         long stop = System.currentTimeMillis();
         storage.stopWorking.add(stop);
         LocalTime eTime = LocalTime.now();
