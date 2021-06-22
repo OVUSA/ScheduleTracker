@@ -8,8 +8,6 @@ public class WorkState implements State {
     Tracker tracker;
     Manager storage;
     long start;
-
-
     WorkState (Tracker tracker){
         this.tracker = tracker;
     }
@@ -21,11 +19,13 @@ public class WorkState implements State {
 
     public String onRest(){
         LocalTime eTime = LocalTime.now();
-        long start = System.currentTimeMillis();
-
-        String currentTime = tracker.timeFormatting(eTime);
+        long stop = System.currentTimeMillis();
+        String currentTime = storage.timeFormatting(eTime);
         System.out.println("Stop working at "+ currentTime);
-        //manager.stopWorking.add(currentTime);
+        System.out.println();
+        // save time of the state' change
+        storage.stopWorking.add(stop);
+        storage.startedResting.add(stop);
         tracker.changeState(new RestingState(tracker));
         return " Started resting at "+ currentTime;
 
@@ -33,24 +33,16 @@ public class WorkState implements State {
     }
     public String onStop (){
         tracker.setWorking(false);
-        //tracker.changeState(new StopState(tracker));
+        long stop = System.currentTimeMillis();
+        storage.stopWorking.add(stop);
         LocalTime eTime = LocalTime.now();
-        String times = timeFormatting(eTime);
+        String times = storage.timeFormatting(eTime);
         tracker.changeState(new StopState(tracker));
         return " Stop working at: " + times;
     }
 
-    public String timeFormatting(LocalTime time){
-        DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
-        return  time.format(myFormatObj1);
 
-    }
-    public void calculateDuration (Long time){
-        List<Long> currentTime = new ArrayList<>();
-        if(currentTime.get(0)== null){
-            currentTime.add(time);
-        }
-    }
+
 
 
 

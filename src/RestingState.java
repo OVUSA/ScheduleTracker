@@ -14,10 +14,11 @@ public class RestingState implements State {
     @Override
     public String onWork() {
         LocalTime currentTime = LocalTime.now();
-        String ct = tracker.timeFormatting(currentTime);
+        String ct = dataBase.timeFormatting(currentTime);
         long start = System.currentTimeMillis();
-        tracker.changeState(new WorkState(tracker));
+        dataBase.stopResting.add(start);
         dataBase.startedWorking.add(start);
+        tracker.changeState(new WorkState(tracker));
         return "Stop resting is recorded at: "+ ct+" \n"+
                 "Begin working at "+ ct ;
 
@@ -32,9 +33,9 @@ public class RestingState implements State {
     public String onStop(){
      LocalTime eTime = LocalTime.now();
      long stop = System.currentTimeMillis();
-     tracker.changeState(new StopState(tracker));
      dataBase.stopResting.add(stop);
-     return "Stop resting at :"+ tracker.timeFormatting(eTime);
+     tracker.changeState(new StopState(tracker));
+     return "Stop resting at :"+ dataBase.timeFormatting(eTime);
     }
 }
 

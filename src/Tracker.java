@@ -35,10 +35,6 @@ public class Tracker {
 
         }
 
-    public String timeFormatting(LocalTime time){
-        DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
-        return  time.format(myFormatObj1);
 
-    }
 
 }

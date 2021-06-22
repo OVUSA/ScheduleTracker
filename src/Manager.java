@@ -1,5 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +12,9 @@ public class Manager {
     List<Long> stopWorking = new ArrayList<>();
     List<Long> startedResting = new ArrayList<>();
     List<Long> stopResting = new ArrayList<>();
+
+
+
     static long durationStart=0;
     static long durationStop=0;
     List <Long> durationsAB = new ArrayList<>();
@@ -24,6 +29,18 @@ public class Manager {
     public void calculateDuration(){
         long elapsedTime = durationStop- durationStart;
         durationsAB.add(elapsedTime);
+    }
+
+    public String timeFormatting(LocalTime time){
+        DateTimeFormatter myFormatObj1 = DateTimeFormatter.ofPattern("hh:mm:ss");
+        return  time.format(myFormatObj1);
+
+    }
+    public void calculateDuration (Long time){
+        List<Long> currentTime = new ArrayList<>();
+        if(currentTime.get(0)== null){
+            currentTime.add(time);
+        }
     }
 
 }
