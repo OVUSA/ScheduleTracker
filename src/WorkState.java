@@ -13,8 +13,7 @@ public class WorkState implements State {
     }
 
     public String onWork(){
-       // System.out.println("Have been working since:"+ manager.startedWorking.get(manager.startedWorking.size()-1));
-        return "Inactive..., press STOP if you wish to terminate the activity!";
+          return "Inactive..., press STOP if you wish to terminate the activity!";
     }
 
     public String onRest(){
@@ -28,8 +27,6 @@ public class WorkState implements State {
         storage.startedResting.add(stop);
         tracker.changeState(new RestingState(tracker));
         return " Started resting at "+ currentTime;
-
-
     }
     public String onStop (){
         tracker.setWorking(false);
@@ -41,13 +38,4 @@ public class WorkState implements State {
         return " Stop working at: " + times;
     }
 
-
-
-
-
-
 }
-
-// localitme.minusMinutes(long)
-//long createdMillis = System.currentTimeMillis();
-
