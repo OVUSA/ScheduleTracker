@@ -27,13 +27,14 @@ public class Tracker {
         return working;
     }
 
-    
-    public void report(){
+
+    public String report(){
         Manager storage = new Manager();
         System.out.println("Here is your daily report, \n" +
                 "here you can see how much time you worked \n and how much time you rested");
+        return storage.duration.get(0);
 
-        }
+    }
 
 
 
