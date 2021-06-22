@@ -31,6 +31,4 @@ class StopState implements State{
     public String onStop() {
         return "Inactive 'STOP' button";
     }
-
-
 }
