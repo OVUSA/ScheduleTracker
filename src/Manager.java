@@ -11,15 +11,13 @@ import java.util.List;
 
 public class Manager implements State {
 
+     // record working time in milliseconds
      static ArrayList<Long> startedWorking = new ArrayList<>();
      static ArrayList<Long> stopWorking = new ArrayList<>();
-
-    List< String> startWorking_String = new ArrayList<>();
-
+     
+     // recond resting time in milliseconds
     ArrayList<Long> startedResting = new ArrayList<>();
     ArrayList<Long> stopResting = new ArrayList<>();
-
-    List<String> duration = new ArrayList<>();
 
     // work time duration
     ArrayList<Long> dif = new ArrayList<>();
