@@ -24,15 +24,10 @@ public class Tracker {
         return working;
     }
 
-
     public void report() throws IOException {
         Manager storage = new Manager();
         storage.calculateDuration(storage.startedWorking, storage.stopWorking, storage.dif);
         storage.calculateDuration(storage.startedResting, storage.stopResting, storage.rest_dif);
         storage.printReport();
-
     }
-
-
-
 }
