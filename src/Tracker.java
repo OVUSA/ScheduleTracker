@@ -25,20 +25,15 @@ public class Tracker {
         return working;
     }
 
-
     public void report(){
         Manager storage = new Manager();
         System.out.println("Here is your daily report, \n" +
-                "here you can see how much time you worked \n and how much time you rested");
+             "here you can see how much time you worked \n and how much time you rested");
 
         storage.calculateDuration();
 
         for (int i = 0 ;i<storage.dif.size(); i++){
             System.out.println(storage.dif.get(i));
         }
-
     }
-
-
-
 }
