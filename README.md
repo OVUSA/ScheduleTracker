@@ -1,6 +1,6 @@
 # ScheduleTracker
 The application is developed using Java and Eclipse.
-Schedule Tracker is intended for measuring time slots, particularly working time and resting time.
+Schedule Tracker is intended for measuring working or resting time.
 
 Application initiated in STOP_STATE and doesn't display anything in the window .
 ![Screenshot (318)](https://user-images.githubusercontent.com/60892608/135145299-e4443ba9-e39b-456c-b9b0-c6ff30cb7ba6.png)
