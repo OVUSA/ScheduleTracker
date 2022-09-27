@@ -4,4 +4,4 @@ Report for 2021-06-22
 Categories 	 Duration:
  Work   	  06:00:00
 
- Break   	  06:00:00
+ Break   	  00:3220
